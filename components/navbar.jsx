@@ -5,6 +5,7 @@ import { BsTwitterX } from "react-icons/bs";
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
+import NavLink from "./navLink";
 
 const links = [
   { url: "/", title: "Home" },
@@ -16,15 +17,13 @@ const links = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex items-center justify-between h-full px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+    <div className="flex items-center justify-between h-full px-4 text-xl sm:px-8 md:px-12 lg:px-20 xl:px-48">
       <div id="links" className="hidden w-1/3 gap-4 md:flex">
         {links.map((link) => (
-          <Link href={link.url} key={link.title}>
-            {link.title}
-          </Link>
+          <NavLink key={link.title} link={link} />
         ))}
       </div>
-      <div id="logo" className="justify-center w-1/3 md:hidden lg:flex">
+      <div id="logo" className="xl:justify-center xl:w-1/3 md:hidden lg:flex">
         <Link
           href="/"
           className="flex items-center justify-center p-1 text-sm font-semibold bg-black rounded-md"
